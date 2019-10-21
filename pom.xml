@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.basepom</groupId>
+    <artifactId>basepom-oss</artifactId>
+    <version>25</version>
+  </parent>
+
+  <groupId>org.simple.streaming</groupId>
+  <artifactId>parent-pom</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>pom</packaging>
+
+  <properties>
+    <project.build.targetJdk>1.8</project.build.targetJdk>
+    <project.build.releaseJdk>8</project.build.releaseJdk>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
+    <basepom.jar.name.format>${project.artifactId}-${project.version}</basepom.jar.name.format>
+
+    <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
+    <basepom.check.phase-coverage>pre-integration-test</basepom.check.phase-coverage>
+    <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
+    <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
+    <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
+    <basepom.check.phase-duplicate-finder>verify</basepom.check.phase-duplicate-finder>
+    <basepom.check.phase-enforcer>validate</basepom.check.phase-enforcer>
+    <basepom.check.phase-findbugs>verify</basepom.check.phase-findbugs>
+    <basepom.check.phase-pmd>verify</basepom.check.phase-pmd>
+    <basepom.check.phase-pom-lint>validate</basepom.check.phase-pom-lint>
+    <basepom.check.phase-prepare-coverage>initialize</basepom.check.phase-prepare-coverage>
+    <basepom.git-id.phase>initialize</basepom.git-id.phase>
+
+    <basepom.check.skip-pom-lint>${basepom.check.skip-basic}</basepom.check.skip-pom-lint>
+    <basepom.check.skip-license>true</basepom.check.skip-license>
+    <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
+
+    <basepom.dependency-management.dependencies>true</basepom.dependency-management.dependencies>
+    <basepom.dependency-management.plugins>true</basepom.dependency-management.plugins>
+
+    <basepom.test.memory>1024m</basepom.test.memory>
+    <basepom.test.timeout>900</basepom.test.timeout>
+    <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
+
+    <!-- plugin dep properties -->
+    <dep.plugin.compiler.version>3.8.0</dep.plugin.compiler.version>
+    <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
+    <dep.plugin.failsafe.version>3.0.0-M3</dep.plugin.failsafe.version>
+    <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
+    <dep.plugin.plugin.version>3.5</dep.plugin.plugin.version>
+    <dep.plugin.surefire.version>2.21.0</dep.plugin.surefire.version>
+
+
+    <!-- dep management properties -->
+    <dep.assertj.version>3.4.1</dep.assertj.version>
+    <dep.classgraph.version>4.8.52</dep.classgraph.version>
+    <dep.guava.version>24.0-jre</dep.guava.version>
+    <dep.guice.version>4.1.0</dep.guice.version>
+    <dep.hk2.version>2.5.0-b05</dep.hk2.version>
+    <dep.jackson.version>2.9.10</dep.jackson.version>
+    <dep.jackson-databind.version>2.9.10.1</dep.jackson-databind.version>
+    <dep.jave2.version>2.6.1</dep.jave2.version>
+    <dep.junit.version>4.12</dep.junit.version>
+    <dep.mockito.version>2.23.4</dep.mockito.version>
+    <dep.simple-streaming.version>1.0-SNAPSHOT</dep.simple-streaming.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- project deps -->
+      <dependency>
+        <groupId>org.simple.streaming</groupId>
+        <artifactId>simple-streaming-service-assets</artifactId>
+        <version>${dep.simple-streaming.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.simple.streaming</groupId>
+        <artifactId>simple-streaming-service-containers</artifactId>
+        <version>${dep.simple-streaming.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.simple.streaming</groupId>
+        <artifactId>simple-streaming-service-core</artifactId>
+        <version>${dep.simple-streaming.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.simple.streaming</groupId>
+        <artifactId>simple-streaming-service-extensions</artifactId>
+        <version>${dep.simple-streaming.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.simple.streaming</groupId>
+        <artifactId>simple-streaming-service-http</artifactId>
+        <version>${dep.simple-streaming.version}</version>
+      </dependency>
+
+      <!-- jackson deps -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-guava</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jdk8</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${dep.jackson-databind.version}</version>
+      </dependency>
+
+      <!-- google deps -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${dep.guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>${dep.guice.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject.extensions</groupId>
+        <artifactId>guice-multibindings</artifactId>
+        <version>${dep.guice.version}</version>
+      </dependency>
+
+      <!-- dropwizard deps -->
+      <dependency>
+        <groupId>com.hubspot.dropwizard</groupId>
+        <artifactId>dropwizard-guicier</artifactId>
+        <version>1.3.5.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.hk2</groupId>
+        <artifactId>hk2-api</artifactId>
+        <version>${dep.hk2.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>aopalliance-repackaged</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.hk2</groupId>
+        <artifactId>hk2-locator</artifactId>
+        <version>${dep.hk2.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>aopalliance-repackaged</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>2.0.1</version>
+      </dependency>
+
+      <!-- persistence -->
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.200</version>
+      </dependency>
+
+      <!-- classgraph -->
+      <dependency>
+        <groupId>io.github.classgraph</groupId>
+        <artifactId>classgraph</artifactId>
+        <version>${dep.classgraph.version}</version>
+      </dependency>
+
+      <!-- immutables -->
+      <dependency>
+        <groupId>org.immutables</groupId>
+        <artifactId>value</artifactId>
+        <version>2.8.0</version>
+      </dependency>
+
+      <!-- logging deps -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.21</version>
+      </dependency>
+
+      <!-- jave2 deps -->
+      <dependency>
+        <groupId>ws.schild</groupId>
+        <artifactId>jave-core</artifactId>
+        <version>${dep.jave2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ws.schild</groupId>
+        <artifactId>jave-nativebin-osx64</artifactId>
+        <version>${dep.jave2.version}</version>
+      </dependency>
+
+      <!-- testing -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${dep.junit.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${dep.assertj.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${dep.mockito.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>
