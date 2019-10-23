@@ -73,6 +73,7 @@
     <dep.jackson-databind.version>2.9.10.1</dep.jackson-databind.version>
     <dep.jave2.version>2.6.1</dep.jave2.version>
     <dep.jersey2.version>2.25.1</dep.jersey2.version>
+    <dep.jetty.version>9.4.19.v20190610</dep.jetty.version>
     <dep.junit.version>4.12</dep.junit.version>
     <dep.mockito.version>2.23.4</dep.mockito.version>
     <dep.simple-streaming.version>1.0-SNAPSHOT</dep.simple-streaming.version>
@@ -234,6 +235,13 @@
             <artifactId>javax.inject</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <!-- jetty -->
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-http</artifactId>
+        <version>${dep.jetty.version}</version>
       </dependency>
 
       <!-- hk2 -->
