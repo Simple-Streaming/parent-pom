@@ -512,4 +512,29 @@
     </developer>
   </developers>
 
+  <profiles>
+    <profile>
+      <id>basepom.executable</id>
+      <activation>
+        <file>
+          <exists>${basedir}/.build-executable</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.skife.maven</groupId>
+            <artifactId>really-executable-jar-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default</id>
+                <phase>${basepom.plugin.phase-really-executable}</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
 </project>
