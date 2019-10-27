@@ -71,6 +71,9 @@
     <dep.hk2.version>2.5.0-b32</dep.hk2.version>
     <dep.jackson.version>2.9.10</dep.jackson.version>
     <dep.jackson-databind.version>2.9.10.1</dep.jackson-databind.version>
+    <dep.javax-inject.version>1</dep.javax-inject.version>
+    <dep.javax-validation.version>1.1.0.Final</dep.javax-validation.version>
+    <dep.javax-servlet.version>3.1.0</dep.javax-servlet.version>
     <dep.jave2.version>2.6.1</dep.jave2.version>
     <dep.jersey2.version>2.25.1</dep.jersey2.version>
     <dep.jetty.version>9.4.19.v20190610</dep.jetty.version>
@@ -225,6 +228,21 @@
       </dependency>
       <dependency>
         <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jersey</artifactId>
+        <version>${dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.eclipse.jetty.orbit</groupId>
+            <artifactId>javax.servlet</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>javax.inject</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-lifecycle</artifactId>
         <version>${dep.dropwizard.version}</version>
       </dependency>
@@ -370,7 +388,27 @@
         </exclusions>
       </dependency>
 
-      <!-- javax -->
+      <!-- java apis -->
+      <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>${dep.javax-inject.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${dep.javax-servlet.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>${dep.javax-validation.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>jsr311-api</artifactId>
+        <version>1.1.1</version>
+      </dependency>
       <dependency>
         <groupId>javax.ws.rs</groupId>
         <artifactId>javax.ws.rs-api</artifactId>
