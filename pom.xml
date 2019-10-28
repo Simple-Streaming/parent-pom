@@ -143,6 +143,11 @@
         <artifactId>jackson-datatype-jsr310</artifactId>
         <version>${dep.jackson.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.jaxrs</groupId>
+        <artifactId>jackson-jaxrs-base</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
 
       <!-- guava -->
       <dependency>
