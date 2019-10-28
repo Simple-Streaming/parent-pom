@@ -86,6 +86,7 @@
     <dependencies>
 
       <!-- project deps -->
+      <!-- TODO this probably breaks plugin development and should be removed -->
       <dependency>
         <groupId>org.simple.streaming</groupId>
         <artifactId>simple-streaming-service-assets</artifactId>
