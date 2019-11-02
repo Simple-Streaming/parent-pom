@@ -254,6 +254,11 @@
       </dependency>
       <dependency>
         <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jetty</artifactId>
+        <version>${dep.dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-lifecycle</artifactId>
         <version>${dep.dropwizard.version}</version>
       </dependency>
