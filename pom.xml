@@ -373,10 +373,28 @@
       <!-- jdbi -->
       <dependency>
         <groupId>org.jdbi</groupId>
-        <artifactId>jdbi3-bom</artifactId>
-        <type>pom</type>
+        <artifactId>jdbi3-core</artifactId>
         <version>${dep.jdbi3.version}</version>
-        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jdbi</groupId>
+        <artifactId>jdbi3-guava</artifactId>
+        <version>${dep.jdbi3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jdbi</groupId>
+        <artifactId>jdbi3-jackson2</artifactId>
+        <version>${dep.jdbi3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jdbi</groupId>
+        <artifactId>jdbi3-sqlobject</artifactId>
+        <version>${dep.jdbi3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jdbi</groupId>
+        <artifactId>jdbi3-testing</artifactId>
+        <version>${dep.jdbi3.version}</version>
       </dependency>
 
       <!-- hk2 -->
