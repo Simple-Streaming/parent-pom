@@ -68,6 +68,7 @@
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.guava.version>25.0-jre</dep.guava.version>
     <dep.guice.version>4.1.0</dep.guice.version>
+    <dep.h2.version>1.4.200</dep.h2.version>
     <dep.hk2.version>2.5.0-b32</dep.hk2.version>
     <dep.jackson.version>2.9.10</dep.jackson.version>
     <dep.jackson-databind.version>2.9.10.1</dep.jackson-databind.version>
@@ -397,6 +398,13 @@
         <version>${dep.jdbi3.version}</version>
       </dependency>
 
+      <!-- h2 -->
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${dep.h2.version}</version>
+      </dependency>
+
       <!-- hk2 -->
       <dependency>
         <groupId>org.glassfish.hk2</groupId>
@@ -457,13 +465,6 @@
         <groupId>javax.ws.rs</groupId>
         <artifactId>javax.ws.rs-api</artifactId>
         <version>2.0.1</version>
-      </dependency>
-
-      <!-- persistence -->
-      <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>1.4.200</version>
       </dependency>
 
       <!-- classgraph -->
